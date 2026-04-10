@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://c0n7f6y05j2kq"]
+
+[ext_resource type="Script" path="res://scripts/buildings/music_store_glb_adapter.gd" id="1_3ad8n"]
+[ext_resource type="PackedScene" path="res://assets/models/buildings/MusicStore.glb" id="2_4gv2w"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6uqxr"]
+size = Vector3(6.4, 4.2, 6.4)
+
+[node name="MusicStoreGLB" type="Node3D"]
+script = ExtResource("1_3ad8n")
+
+[node name="ModelRoot" type="Node3D" parent="."]
+
+[node name="GLBModel" parent="ModelRoot" instance=ExtResource("2_4gv2w")]
+
+[node name="EntranceMarker" type="Marker3D" parent="."]
+position = Vector3(0, 0, 3.968)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_6uqxr")
+position = Vector3(0, 2.1, 0)

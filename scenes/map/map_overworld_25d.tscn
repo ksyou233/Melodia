@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://c3b8f2p0gq7va"]
+
+[ext_resource type="Script" path="res://scripts/map/map_overworld_25d.gd" id="1_qacpt"]
+[ext_resource type="Script" path="res://scripts/map/map_camera_rig_25d.gd" id="2_v2x5u"]
+[ext_resource type="Script" path="res://scripts/map/building_placer_25d.gd" id="3_k6n3v"]
+
+[sub_resource type="Environment" id="Environment_y8x2b"]
+background_mode = 2
+background_color = Color(0.529412, 0.772549, 0.913725, 1)
+ambient_light_source = 3
+ambient_light_color = Color(0.823529, 0.901961, 0.980392, 1)
+ambient_light_energy = 0.5
+
+[node name="MapOverworld25D" type="Node3D"]
+script = ExtResource("1_qacpt")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_y8x2b")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+rotation = Vector3(-0.907571, -0.785398, 0)
+scale = Vector3(1, 1, 1)
+light_energy = 1.25
+shadow_enabled = true
+
+[node name="CameraRig" type="Node3D" parent="."]
+script = ExtResource("2_v2x5u")
+
+[node name="Camera3D" type="Camera3D" parent="CameraRig"]
+projection = 1
+size = 22.0
+near = 0.1
+far = 500.0
+current = true
+
+[node name="TilesRoot" type="Node3D" parent="."]
+
+[node name="BuildingsRoot" type="Node3D" parent="."]
+
+[node name="BuildingPlacer" type="Node" parent="."]
+script = ExtResource("3_k6n3v")
