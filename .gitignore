@@ -1,3 +1,6 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
+
+# Voxel Tools temporary editor DLL artifact
+addons/zylann.voxel/bin/~libvoxel.windows.editor.x86_64.dll
